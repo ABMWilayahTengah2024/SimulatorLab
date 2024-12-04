@@ -69,22 +69,39 @@
 <body>
     <div class="container">
         <h1>Borang Penggunaan</h1>
-        <form id="usageForm">
-            <label for="nama">Nama:</label>
+        <form id="reportForm">
+            <label for="nama">NAMA: </label>
             <input type="text" id="nama" name="nama" required>
 
-            <label for="tujuan">Tujuan:</label>
+            <label for="tujuan">TUJUAN: </label>
             <textarea id="tujuan" name="tujuan" required></textarea>
 
-            <label for="tarikhAmbil">Tarikh Ambil:</label>
-            <input type="date" id="tarikhAmbil" name="tarikhAmbil" required>
+            <label for="peralatan">PERALATAN: </label>
+            <input type="text" id="peralatan" name="peralatan" required>
 
-            <label for="tarikhPulang">Tarikh Pulang:</label>
-            <input type="date" id="tarikhPulang" name="tarikhPulang" required>
+            <label for="tarikh_ambil">TARIKH AMBIL: </label>
+            <input type="date" id="tarikh_ambil" name="tarikh_ambil" required>
 
-            <input type="button" value="Hantar" onclick="submitForm()">
+            <label for="tarikh_pulang">TARIKH PULANG: </label>
+            <input type="date" id="tarikh_pulang" name="tarikh_pulang" required>
+
+            <label for="ttambil">T/T AMBIL:</label>
+            <div id="signature-pad1" class="signature-pad1">
+                <canvas width="400" height="150"></canvas>
+                <center><button type="button" id="clear-signature1">Clear</button></center>
+            </div>
+
+            <label for="ttpulang">T/T PULANG:</label>
+            <div id="signature-pad2" class="signature-pad2">
+                <canvas width="400" height="150"></canvas>
+                <center><button type="button" id="clear-signature2">Clear</button></center>
+            </div>
+
+            <input type="submit" value="HANTAR"><br>
         </form>
     </div>
+
+    
 
     <script>
         function submitForm() {
@@ -93,7 +110,9 @@
                 nama: document.getElementById('nama').value,
                 tujuan: document.getElementById('tujuan').value,
                 tarikhAmbil: document.getElementById('tarikhAmbil').value,
-                tarikhPulang: document.getElementById('tarikhPulang').value
+                tarikhPulang: document.getElementById('tarikhPulang').value,
+                tandatanganAmbil: document.getElementById('ttambil').value,
+                tandatanganPulang: document.getElementById('ttpulang').value
             };
 
             // Encode the data into URL parameters
