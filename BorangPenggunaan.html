@@ -63,7 +63,31 @@
         input[type="button"]:hover {
             background-color: #0056b3;
         }
+
+        .signature-pad1, .signature-pad2 {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var canvas1 = document.querySelector("#signature-pad1 canvas");
+            var canvas2 = document.querySelector("#signature-pad2 canvas");
+
+            var signaturePad1 = new SignaturePad(canvas1);
+            var signaturePad2 = new SignaturePad(canvas2);
+
+            document.getElementById('clear-signature1').addEventListener('click', function () {
+                signaturePad1.clear();
+            });
+
+            document.getElementById('clear-signature2').addEventListener('click', function () {
+                signaturePad2.clear();
+            });
+        });
+    </script>
 </head>
 
 <body>
